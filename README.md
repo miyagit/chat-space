@@ -1,24 +1,46 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+# DB設計
+## 『User』
+|カラム名|データの型|オプション|
+|:-|-:|:-:|
+|id|int|主キー|
+|name|string||
+|mail|string||
+|created_at|datetime||
+|updated_at|datetime||
 
-* Ruby version
+## 『Group』
+|カラム名|データの型|オプション|
+|:-|-:|:-:|
+|id|int|主キー|
+|name|string||
+|user_id|int|外部キー|
+|created_at|datetime||
+|updated_at|datetime||
 
-* System dependencies
+##『chat』
+|カラム名|データの型|オプション|
+|:-|-:|:-:|
+|id|int|主キー|
+|text|text||
+|image|string||
+|user_id|int|外部キー|
+|gropu_id|int|外部キー|
+|created_at|datetime||
+|updated_at|datetime||
 
-* Configuration
+# アソシエーション
 
-* Database creation
+## 『User』
+1. belongs_to :group
+2. has_many :chats
 
-* Database initialization
+## 『Group』
+1. has_many :users
+2. has_many :chats
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## 『chat』
+1. belongs_to :user
+2. belongs_to :group
