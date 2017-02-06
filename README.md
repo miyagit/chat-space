@@ -1,6 +1,7 @@
 # README
 
 <table>
+  <caption>userテーブル</caption>
   <tr>
     <th>カラム名</th>
     <th>データの型</th>
@@ -12,53 +13,129 @@
     <td>主キー</td>
   </tr>
   <tr>
-    <td>なつみかん</td>
-    <td>かなり酸っぱいと思う</td>
-    <td>たいてい黄色</td>
+    <td>name</td>
+    <td>string</td>
+    <td>なし</td>
+  </tr>
+  <tr>
+    <td>mail</td>
+    <td>string</td>
+    <td>なし</td>
+  </tr>
+  <tr>
+    <td>created_at</td>
+    <td>datetime</td>
+    <td>なし</td>
+  </tr>
+  <tr>
+    <td>updated_at</td>
+    <td>datetime</td>
+    <td>なし</td>
   </tr>
 </table>
 
+<table>
+  <caption>groupテーブル</caption>
+  <tr>
+    <th>カラム名</th>
+    <th>データの型</th>
+    <th>オプション</th>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>int</td>
+    <td>主キー</td>
+  </tr>
+  <tr>
+    <td>name</td>
+    <td>string</td>
+    <td>なし</td>
+  </tr>
+  <tr>
+    <td>user_id</td>
+    <td>int</td>
+    <td>外部キー</td>
+  </tr>
+  <tr>
+    <td>created_at</td>
+    <td>datetime</td>
+    <td>なし</td>
+  </tr>
+  <tr>
+    <td>updated_at</td>
+    <td>datetime</td>
+    <td>なし</td>
+  </tr>
+</table>
 
-# DB設計
-## 『User』
+<table>
+  <caption>messageテーブル</caption>
+  <tr>
+    <th>カラム名</th>
+    <th>データの型</th>
+    <th>オプション</th>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>int</td>
+    <td>主キー</td>
+  </tr>
+  <tr>
+    <td>name</td>
+    <td>string</td>
+    <td>なし</td>
+  </tr>
+  <tr>
+    <td>text</td>
+    <td>text</td>
+    <td>なし</td>
+  </tr>
+  <tr>
+    <td>user_id</td>
+    <td>int</td>
+    <td>外部キー</td>
+  </tr>
+  <tr>
+    <td>group_id</td>
+    <td>int</td>
+    <td>外部キー</td>
+  </tr>
+  <tr>
+    <td>created_at</td>
+    <td>datetime</td>
+    <td>なし</td>
+  </tr>
+  <tr>
+    <td>updated_at</td>
+    <td>datetime</td>
+    <td>なし</td>
+  </tr>
+</table>
 
-|カラム名|データの型|オプション|
-|:---:||:---:||:---:|
-|id|int|主キー|
-|name|string||
-|mail|string||
-|created_at|datetime||
-|updated_at|datetime||
+<table>
+  <caption>user_to_groupテーブル</caption>
+  <tr>
+    <th>カラム名</th>
+    <th>データの型</th>
+    <th>オプション</th>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>int</td>
+    <td>主キー</td>
+  </tr>
+  <tr>
+    <td>user_id</td>
+    <td>int</td>
+    <td>外部キー</td>
+  </tr>
+  <tr>
+    <td>group_id</td>
+    <td>int</td>
+    <td>外部キー</td>
+  </tr>
+</table>
 
-## 『Group』
-
-|カラム名|データの型|オプション|
-|:---:||:---:||:---:|
-|id|int|主キー|
-|name|string||
-|user_id|int|外部キー|
-|created_at|datetime||
-|updated_at|datetime||
-
-##『message』
-
-|カラム名|データの型|オプション|
-|:---:||:---:||:---:|
-|id|int|主キー|
-|text|text||
-|image|string||
-|user_id|int|外部キー|
-|gropu_id|int|外部キー|
-|created_at|datetime||
-|updated_at|datetime||
-
-##『user_to_group』
-
-|カラム名|データの型|オプション|
-|:---:||:---:||:---:|
-|id|int|主キー|
-|user_id|int|外部キー|
-|gropu_id|int|外部キー|
 
 # アソシエーション
 
