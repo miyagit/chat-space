@@ -1,5 +1,22 @@
 # README
 
+<table>
+  <tr>
+    <th>カラム名</th>
+    <th>データの型</th>
+    <th>オプション</th>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>int</td>
+    <td>主キー</td>
+  </tr>
+  <tr>
+    <td>なつみかん</td>
+    <td>かなり酸っぱいと思う</td>
+    <td>たいてい黄色</td>
+  </tr>
+</table>
 
 
 # DB設計
