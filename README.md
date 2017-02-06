@@ -1,24 +1,62 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+|中央寄せ|
+|:------:|
 
-Things you may want to cover:
+# DB設計
+## 『User』
+|カラム名|データの型|オプション|
+|:------:||:------:||:------:|
+|id|int|主キー|
+|name|string||
+|mail|string||
+|created_at|datetime||
+|updated_at|datetime||
 
-* Ruby version
+## 『Group』
+|カラム名|データの型|オプション|
+|:------:||:------:||:------:|
+|id|int|主キー|
+|name|string||
+|user_id|int|外部キー|
+|created_at|datetime||
+|updated_at|datetime||
 
-* System dependencies
+##『message』
+|カラム名|データの型|オプション|
+|:------:||:------:||:------:|
+|id|int|主キー|
+|text|text||
+|image|string||
+|user_id|int|外部キー|
+|gropu_id|int|外部キー|
+|created_at|datetime||
+|updated_at|datetime||
 
-* Configuration
+##『user_to_group』
+|カラム名|データの型|オプション|
+|:------:||:------:||:------:|
+|id|int|主キー|
+|user_id|int|外部キー|
+|gropu_id|int|外部キー|
 
-* Database creation
+# アソシエーション
 
-* Database initialization
+## 『User』
+1. has_many :messages
+2. has_many :user_to_groups
+3. has_many :groups, through: :user_to_group
 
-* How to run the test suite
+## 『Group』
+1. has_many :messages
+2. has_many :user_to_groups
+3. has_many :users, through: :user_to_group
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
+## 『message』
+1. belongs_to :user
+2. belongs_to :group
 
-* ...
+## 『user_to_group』
+1. belongs_to :user
+2. belongs_to :group
