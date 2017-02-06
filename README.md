@@ -81,13 +81,13 @@
     <td>主キー</td>
   </tr>
   <tr>
-    <td>name</td>
-    <td>string</td>
+    <td>text</td>
+    <td>text</td>
     <td>なし</td>
   </tr>
   <tr>
-    <td>text</td>
-    <td>text</td>
+    <td>image</td>
+    <td>string</td>
     <td>なし</td>
   </tr>
   <tr>
