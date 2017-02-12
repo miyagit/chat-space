@@ -15,6 +15,8 @@ gem 'erb2haml'
 #見た目
 gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
+gem "font-awesome-rails"
+gem 'font-awesome-sass'
 
 group :development, :test do
   gem 'byebug', platform: :mri

@@ -1,3 +1,180 @@
-// Place all the styles related to the messages controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+html, body {
+  height: 100%;
+}
+
+.chatspace {
+  height: 100%;
+  &__left {
+    float :left;
+    background-color: #2f3e51;
+    height: 100%;
+    width: 300px;
+    &__top {
+      padding-left: 20px;
+      height:100px;
+      background-color: #253141;
+      position: relative;
+      &__character {
+        height: 20px;
+        padding-top: 35px;
+        font-size: 16px;
+        color: #FFFFFF;
+        width: 150px;
+        font-weight: bold;
+      }
+      &__awesomebox {
+        height: 20px;
+        width: 50px;
+        position: absolute;
+        top: 35px;
+        right: 20px;
+        .fa.fa-pencil-square-o {
+          font-size: 20px;
+          float: left;
+          color: white;
+        }
+        .fa.fa-cog {
+          font-size: 20px;
+          float: right;
+          color: white;
+        }
+      }
+    }
+    &__bottom {
+      padding-left: 20px;
+      &__top1character {
+        font-size: 15px;
+        color: #FFFFFF;
+        padding-top: 20px;
+      }
+      &__top2character {
+        font-size: 11px;
+        color: #FFFFFF;
+        padding-top: 5px;
+      }
+      &__top3character {
+          font-size: 15px;
+          color: #FFFFFF;
+          padding-top: 40px;
+      }
+      &__top4character {
+        font-size: 11px;
+        color: #FFFFFF;
+        padding-top: 5px;
+      }
+    }
+  }
+  &__right {
+    float: right;
+    height: 100%;
+    width: calc(100% - 300px);
+    background-color: #f8f8f8;
+    &__top {
+      height: 100px;
+      background-color: white;
+      border-bottom: 1px solid #eeeeee;
+      &__left {
+        font-size: 20px;
+        color: #333333;
+        padding-top: 35px;
+        padding-left: 40px;
+        width: 300px;
+        float: left;
+        &__top1character {
+
+        }
+        &__member {
+          font-size: 12px;
+          color: #999999;
+          padding-top: 8px;
+        }
+      }
+      &__right {
+        &__edit {
+          width: 80px;
+          margin-top: 28px;
+          height: 40px;
+          float: right;
+          margin-right: 40px;
+            &__hole {
+            color: #0099e3;
+            border: 1px solid #0099e3;
+            text-align: center;
+            height: 32px;
+            padding-top: 8px;
+            &__member {
+              float: left;
+              font-size: 12px;
+              color: #999999;
+            }
+          }
+        }
+      }
+    }
+    &__bottom {
+      &__top1character {
+        font-size: 16px;
+        padding-top: 46px;
+        padding-left: 40px;
+        font-weight: bold;
+      }
+      &__top2character {
+        font-size: 14px;
+        padding-top: 10px;
+        padding-left: 40px;
+      }
+      &__top3character {
+        font-size: 16px;
+        font-weight: bold;
+        padding-top: 40px;
+        padding-left: 40px;
+        &__dating {
+          font-size: 12px;
+          color: #999999;
+        }
+      }
+      &__mostbox {
+        position: fixed;
+        bottom: 0;
+        height: 90px;
+        width: calc(100% - 300px);
+        background-color: #9e9e9e;
+        &__messagebox {
+          width: 790px;
+          height: 50px;
+          background-color: white;
+          margin-top: 20px;
+          margin-left: 40px;
+          margin-right: 15px;
+          // margin-left: 40px;
+          // margin-right: 40px;
+          float: left;
+          .fa.fa-file-picture-o {
+            float: right;
+            margin-top: 15px;
+            margin-right: 10px;
+          }
+          &__type {
+            margin-left: 10px;
+            margin-top: 12px;
+            font-size: 16px;
+            color: #a5a5a5;
+          }
+        }
+        &__sendbox {
+          height: 50px;
+          width: 95px;
+          margin-top: 20px;
+          margin-right: 40px;
+          background-color: #38AEF0;
+          text-align: center;
+          float: right;
+          &__sendbutton {
+            padding: 13px;
+            color: white;
+          }
+        }
+      }
+    }
+  }
+}
