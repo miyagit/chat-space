@@ -1,4 +1,4 @@
 class MessagesController < ApplicationController
-	def top
+	def index
 	end
 end
