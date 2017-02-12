@@ -3,11 +3,11 @@ html, body {
 }
 
 .chatspace {
-  height: 100%;
+  height: $height_max;
   &__left {
     float :left;
     background-color: #2f3e51;
-    height: 100%;
+    height: $height_max;
     width: 300px;
     &__top {
       padding: 0px 0px 0px 20px;
@@ -18,7 +18,7 @@ html, body {
         height: 20px;
         padding: 35px 0px 0px 0px;
         font-size: 16px;
-        color: #FFFFFF;
+        color: $left_character_color;
         width: 150px;
         font-weight: bold;
       }
@@ -44,19 +44,19 @@ html, body {
       padding: 0px 0px 0px 20px;
       &__group {
         font-size: 15px;
-        color: #FFFFFF;
+        color: $left_character_color;
         padding: 20px 0px 0px 0px;
       }
       &__message {
         font-size: 11px;
-        color: #FFFFFF;
+        color: $left_character_color;
         padding: 5px 0px 0px 0px;
       }
     }
   }
   &__right {
     float: right;
-    height: 100%;
+    height: $height_max;
     width: calc(100% - 300px);
     background-color: #f8f8f8;
     &__top {
