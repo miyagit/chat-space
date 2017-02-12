@@ -42,22 +42,12 @@ html, body {
     }
     &__bottom {
       padding: 0px 0px 0px 20px;
-      &__top1character {
+      &__group {
         font-size: 15px;
         color: #FFFFFF;
         padding: 20px 0px 0px 0px;
       }
-      &__top2character {
-        font-size: 11px;
-        color: #FFFFFF;
-        padding: 5px 0px 0px 0px;
-      }
-      &__top3character {
-          font-size: 15px;
-          color: #FFFFFF;
-          padding: 40px 0px 0px 0px;
-      }
-      &__top4character {
+      &__message {
         font-size: 11px;
         color: #FFFFFF;
         padding: 5px 0px 0px 0px;
@@ -110,16 +100,11 @@ html, body {
       }
     }
     &__bottom {
-      &__top1character {
-        font-size: 16px;
-        padding: 46px 0px 0px 40px;
-        font-weight: bold;
-      }
-      &__top2character {
+      &__usermessage {
         font-size: 14px;
         padding: 10px 0px 0px 40px;
       }
-      &__top3character {
+      &__username {
         font-size: 16px;
         font-weight: bold;
         padding: 40px 0px 0px 40px;
