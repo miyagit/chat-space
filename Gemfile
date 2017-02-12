@@ -17,6 +17,9 @@ gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
 gem "font-awesome-rails"
 gem 'font-awesome-sass'
+# devise系
+gem 'devise'
+
 
 group :development, :test do
   gem 'byebug', platform: :mri
