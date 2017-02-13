@@ -9,21 +9,19 @@ gem 'puma', '~> 3.0'
 gem 'sass-rails', '~> 5.0'
 gem 'coffee-rails', '~> 4.2'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-gem 'pry-rails'
 #haml適応
 gem 'haml-rails'
-gem 'erb2haml'
 #見た目
 gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
 gem "font-awesome-rails"
-gem 'font-awesome-sass'
 # devise系
 gem 'devise'
 
 
 group :development, :test do
   gem 'byebug', platform: :mri
+  gem 'pry-rails'
 end
 
 group :development do
@@ -31,6 +29,7 @@ group :development do
   gem 'listen', '~> 3.0.5'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'erb2haml'
 end
 
 
