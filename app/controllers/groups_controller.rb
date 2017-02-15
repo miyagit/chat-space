@@ -5,13 +5,13 @@ class GroupsController < ApplicationController
   end
 
   def create
-    group = Group.new(group_params)
-    if group.save
-      flash[:notice] ="グループを作成できました。"
-      redirect_to new_group_path
+    @group = Group.new(group_params)
+    if @group.save
+      redirect_to new_group_path, notice: "グループを作成できました。"
     else
-      flash[:notice] = "グループ名にデータを入力していないので保存できませんでした。"
-      redirect_to new_group_path
+      flash[:alert] = "グループ名にデータを入力していないので保存できませんでした。"
+      render action: :new
+      #redirect_toはアクションを経由してビューを出力するのに対して、renderはアクションを経由せずにそのままビューを出力する。
     end
   end
 
