@@ -1,0 +1,28 @@
+.chat-group-form
+  %h1 新規チャットグループ
+  = form_for @group do |f|
+    .chat-group-form__field.clearfix
+      .chat-group-form__field--left
+        = f.label :name, "グループ名"
+      .chat-group-form__field--right
+        = f.text_field :name, :placeholder => "グループ名を入力してください"
+    .chat-group-form__field.clearfix
+      .chat-group-form__field--left
+        = f.label :name, "チャットメンバーを追加"
+      .chat-group-form__field--right
+        .chat-group-form__search.clearfix
+          -# = f.text_field :username, :placeholder => "追加したいユーザー名を入力してください"
+          -# ↑追加のプルリクのとき作ります。今はとりあえずgroupにレコード追加できるようにします。
+        #user-search-result
+    .chat-group-form__field.clearfix
+      .chat-group-form__field--left
+        = f.label :name, "チャットメンバー"
+      .chat-group-form__field--right
+        #chat-group-users
+          #chat-group-user-22.chat-group-user.clear
+            %p.chat-group-user__name seo_kyohei
+    .chat-group-form__field.clearfix
+      .chat-group-form__field--left
+      .chat-group-form__field--right
+        = f.submit "Send"
+
