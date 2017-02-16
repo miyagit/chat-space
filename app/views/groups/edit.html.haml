@@ -1,0 +1,21 @@
+.chat-group-form
+  %h1 チャットグループ編集
+  = form_for @group do |f|
+    .chat-group-form__field.clearfix
+      .chat-group-form__field--left
+        = f.label :name, "グループ名"
+      .chat-group-form__field--right
+        = f.text_field :name, :placeholder => "グループ名を入力してください"
+    .chat-group-form__field.clearfix
+      .chat-group-form__field--left
+        = f.label :name, "チャットメンバーを追加"
+      .chat-group-form__field--right
+        .chat-group-form__search.clearfix
+        #user-search-result
+    .chat-group-form__field.clearfix
+      .chat-group-form__field--left
+        = f.label :name, "チャットメンバー"
+    .chat-group-form__field.clearfix
+      .chat-group-form__field--left
+      .chat-group-form__field--right
+        = f.submit "Send"
