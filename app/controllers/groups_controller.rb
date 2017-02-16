@@ -11,10 +11,8 @@ class GroupsController < ApplicationController
     else
       flash[:alert] = "グループ名にデータを入力していないので保存できませんでした。"
       render action: :new
-      #redirect_toはアクションを経由してビューを出力するのに対して、renderはアクションを経由せずにそのままビューを出力する。
     end
   end
-
   private
 
   def group_params
