@@ -12,7 +12,8 @@
   .chatspace
     .chatspace__left
       .chatspace__left__top
-        %p.chatspace__left__top__character 宮嶋 勇弥
+        %p.chatspace__left__top__character
+          = current_user.name
         .chatspace__left__top__awesomebox
           = link_to new_group_path do
             %i.fa.fa-pencil-square-o
