@@ -10,9 +10,9 @@
       .chat-group-form__field--left
         = f.label :name, "チャットメンバーを追加"
       .chat-group-form__field--right
+        = collection_check_boxes(:group, :user_ids, User.all, :id, :name) do |b|
+          = b.label { b.check_box + b.text }
         .chat-group-form__search.clearfix
-          -# = f.text_field :username, :placeholder => "追加したいユーザー名を入力してください"
-          -# ↑追加のプルリクのとき作ります。今はとりあえずgroupにレコード追加できるようにします。
         #user-search-result
     .chat-group-form__field.clearfix
       .chat-group-form__field--left
