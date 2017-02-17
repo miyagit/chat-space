@@ -42,6 +42,9 @@ html, body {
     }
     &__bottom {
       padding: 0px 0px 0px 20px;
+      &:hover {
+        background-color: #E6E6FA;
+      }
       &__group {
         font-size: 15px;
         color: $left_character_color;
