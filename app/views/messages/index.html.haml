@@ -10,12 +10,13 @@
         =link_to "Edit", edit_group_path(@group)
   .chatspace__right__bottom
     .chatspace__right__bottom__message
-      %span.chatspace__right__bottom__message__username miyajima yuya
-      %span.chatspace__right__bottom__message__date 2017/02/12
-      %p.chatspace__right__bottom__message__body なるほど
-    .chatspace__right__bottom__mostbox
-      .chatspace__right__bottom__mostbox__messagebox
-        %i.fa.fa-file-picture-o
-        %p.chatspace__right__bottom__mostbox__messagebox__type type a message
-      .chatspace__right__bottom__mostbox__sendbox
-        %p.chatspace__right__bottom__mostbox__sendbox__sendbutton Send
+      = render partial: 'common/message'
+    = form_for @message, url: {action: "create"} do |f|
+      .chatspace__right__bottom__mostbox
+        .chatspace__right__bottom__mostbox__messagebox
+          %i.fa.fa-file-picture-o
+          %p.chatspace__right__bottom__mostbox__messagebox__type
+            = f.text_field :body, placeholder: "type a message"
+        .chatspace__right__bottom__mostbox__sendbox
+          %p.chatspace__right__bottom__mostbox__sendbox__sendbutton
+            = f.submit "Send"
