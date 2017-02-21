@@ -4,7 +4,7 @@ class Message < ApplicationRecord
   belongs_to :group
 
   def message_time
-  	created_at.to_s(:default)
+    created_at.to_s(:default)
   end
 
 end
