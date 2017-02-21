@@ -1,7 +1,6 @@
-- @messages.each do |message|
-  %span.chatspace__right__bottom__message__username
-    = message.user.name
-  %span.chatspace__right__bottom__message__date
-    = message.user.created_at.in_time_zone('Tokyo')
-  %p.chatspace__right__bottom__message__body
-    = message.body
+%span.chatspace__right__bottom__message__username
+  = message.user.name
+%span.chatspace__right__bottom__message__date
+  = message.user.created_at.strftime("%Y/%m/%d %H:%M:%S")
+%p.chatspace__right__bottom__message__body
+  = message.body

@@ -1,3 +1,4 @@
+= render partial: "groups/sidebar"
 .chatspace__right
   .chatspace__right__top
     .chatspace__right__top__left
@@ -10,8 +11,8 @@
         =link_to "Edit", edit_group_path(@group)
   .chatspace__right__bottom
     .chatspace__right__bottom__message
-      = render partial: 'common/message'
-    = form_for @message, url: {action: "create"} do |f|
+      = render partial: 'common/message', collection: @messages
+    = form_for([@group, @message]) do |f|
       .chatspace__right__bottom__mostbox
         .chatspace__right__bottom__mostbox__messagebox
           %i.fa.fa-file-picture-o
@@ -20,3 +21,4 @@
         .chatspace__right__bottom__mostbox__sendbox
           %p.chatspace__right__bottom__mostbox__sendbox__sendbutton
             = f.submit "Send"
+

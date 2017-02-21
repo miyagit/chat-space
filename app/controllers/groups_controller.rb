@@ -1,5 +1,4 @@
 class GroupsController < ApplicationController
-  layout 'application'
   before_action :set_group, only:[:edit, :update]
 
   def index
@@ -8,7 +7,6 @@ class GroupsController < ApplicationController
 
   def new
     @group = Group.new
-    render layout: 'withoutsidebar'
   end
 
   def create
@@ -22,7 +20,6 @@ class GroupsController < ApplicationController
   end
 
   def edit
-    render layout: 'withoutsidebar'
   end
 
   def update
