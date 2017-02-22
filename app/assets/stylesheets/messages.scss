@@ -139,6 +139,10 @@ html, body {
             margin: 12px 0px 0px 10px;
             font-size: 16px;
             color: #a5a5a5;
+            #message_body {
+              border:none;
+              width: auto
+            }
           }
         }
         &__sendbox {

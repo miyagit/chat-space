@@ -1,7 +1,7 @@
 !!!
 %html
   %head
-    %meta{content: "text/html; charset=UTF-8", http: {equiv: "Content-Type"}}/
+    %meta{content: "text/html; charset=UTF-8", http: {equiv: "Content-Type"}}
     %title ChatSpace
     = csrf_meta_tags
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
@@ -10,13 +10,4 @@
     = render partial: 'common/header'
   %body
   .chatspace
-    .chatspace__left
-      .chatspace__left__top
-        %p.chatspace__left__top__character 宮嶋 勇弥
-        .chatspace__left__top__awesomebox
-          = link_to new_group_path do
-            %i.fa.fa-pencil-square-o
-          = link_to edit_user_registration_path do
-            %i.fa.fa-cog
-      = render partial: "groups/group", collection: @groups
     = yield
