@@ -19,6 +19,18 @@ describe User do
       expect(user.errors[:email]).to include("を入力してください。")
     end
 
+    it "is invalid without a password" do
+      user = build(:user, password: nil)
+      user.valid?
+      expect(user.errors[:password]).to include("を入力してください。")
+    end
+
+    it "is invalid without a password_confirmation although with a password" do
+      user = build(:user, password_confirmation: "")
+      user.valid?
+      expect(user.errors[:password_confirmation]).to include("とパスワードの入力が一致しません。")
+    end
+
     it "is invalid with a duplicate email addreass" do
       user = create("user")
       another_user = build(:user, email: user.email)
@@ -26,18 +38,18 @@ describe User do
       expect(another_user.errors[:email]).to include("はすでに存在します。")
     end
 
-    it "is invalid with a nickname that has more than 7 characters" do
+    it "is invalid with a name that has more than 7 characters" do
       user = build(:user, name: "aaaaaa")
       expect(user).to be_valid
     end
 
-    it "is invalid with a password that has less than 7 characters" do
+    it "is invalid with a name that has less than 7 characters" do
       user = build(:user, name: "aaaaaaaa")
       user.valid?
       expect(user.errors[:name][0]).to include("は6文字以内で入力してください。")
     end
 
-    it "is valid with a nickname that has less than 6 characters" do
+    it "is valid with a name that has less than 6 characters" do
       user = build(:user, name: "aaaaaa")
       expect(user).to be_valid
     end
