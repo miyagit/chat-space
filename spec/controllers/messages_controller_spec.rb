@@ -28,7 +28,6 @@ RSpec.describe MessagesController, type: :controller do
 	describe 'POST #create' do
     it "saves the message in the database" do
       expect(message).to be_valid
-      binding.pry
     end
 
     it "is invalid without a body" do
