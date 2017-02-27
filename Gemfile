@@ -24,6 +24,7 @@ group :development, :test do
   gem 'pry-rails'
   gem 'rspec-rails'
   gem 'factory_girl_rails'
+  gem 'faker'
 end
 
 group :development do
@@ -34,5 +35,6 @@ group :development do
   gem 'erb2haml'
 end
 
-
-
+group :test do
+  gem 'rails-controller-testing'
+end

@@ -5,6 +5,7 @@ class MessagesController < ApplicationController
   end
 
   def create
+     binding.pry
     @message = current_user.messages.new(create_params)
     if @message.save
       redirect_to group_messages_path, notice: "メッセージを送信できました。"
