@@ -24,6 +24,8 @@ group :development, :test do
   gem 'pry-rails'
   gem 'rspec-rails'
   gem 'factory_girl_rails'
+  gem 'faker'
+  gem 'rails-controller-testing'
 end
 
 group :development do
@@ -33,6 +35,4 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'erb2haml'
 end
-
-
 
