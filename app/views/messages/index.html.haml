@@ -12,7 +12,7 @@
   .chatspace__right__bottom
     .chatspace__right__bottom__message
       = render @messages
-    = form_for [@group, @message] do |f|
+    = form_for [@group, @message], html: {id: 'new_form'} do |f|
       .chatspace__right__bottom__mostbox
         .chatspace__right__bottom__mostbox__messagebox
           %i.fa.fa-file-picture-o
@@ -21,4 +21,3 @@
         .chatspace__right__bottom__mostbox__sendbox
           %p.chatspace__right__bottom__mostbox__sendbox__sendbutton
             = f.submit "Send"
-

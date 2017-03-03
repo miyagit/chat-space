@@ -7,7 +7,10 @@ class MessagesController < ApplicationController
   def create
     @message = current_user.messages.new(create_params)
     if @message.save
-      redirect_to group_messages_path, notice: "メッセージを送信できました。"
+      respond_to do |format|
+        format.html {redirect_to group_messages_path, notice: "メッセージを送信できました。"}
+        format.json
+      end
     else
       flash[:alert] = "本文が空なので保存できませんでした。"
       render :index
@@ -30,3 +33,4 @@ class MessagesController < ApplicationController
     @messages = @group.messages
   end
 end
+
