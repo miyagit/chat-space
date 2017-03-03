@@ -28,7 +28,7 @@ $(function() {
     .done(function(data) {
       var html = buildHTML(data);
       $('.chatspace__right__bottom__message').append(html);
-      $('#message_body').val('');
+      $('#new_form')[0].reset();
     })
     .fail(function() {
       alert('error');
