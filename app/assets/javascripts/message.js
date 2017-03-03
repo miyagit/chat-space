@@ -15,7 +15,6 @@ $(function() {
   $('.new_message').on('submit', function(e) {
     e.preventDefault();
     var new_message = $('#message_body').val();
-    console.log(new_message);
     $.ajax({
       type: 'POST',
       url: './messages',
@@ -27,13 +26,13 @@ $(function() {
       dataType: 'json'
     })
     .done(function(data) {
-      console.log(data);
       var html = buildHTML(data);
-      console.log(html);
       $('.chatspace__right__bottom__message').append(html);
+      $('#message_body').val('');
     })
     .fail(function() {
       alert('error');
     });
+    return false;
   });
 });
