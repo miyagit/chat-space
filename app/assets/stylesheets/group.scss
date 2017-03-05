@@ -54,6 +54,19 @@
     .chat-group-form__field--right {
       float: right;
       width: 70%;
+      #list {
+        padding: 0;
+        margin: 0, 250px, 0 200px;
+        width: 50%;
+        list-style: none;
+      }
+      li {
+        border-radius: 5px;
+        box-shadow: 0.5px 0.5px 1px 1px rgba(0,0,0,0.1) inset;
+        background-color: #eee;
+        margin: 10px;
+        padding: 10px;
+      }
     }
 
     .chat-group-form__label {

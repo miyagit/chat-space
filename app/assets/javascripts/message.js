@@ -26,6 +26,7 @@ $(function() {
       dataType: 'json'
     })
     .done(function(data) {
+      console.log(data);
       var html = buildHTML(data);
       $('.chatspace__right__bottom__message').append(html);
       $('#new_form')[0].reset();

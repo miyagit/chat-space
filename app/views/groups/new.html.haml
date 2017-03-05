@@ -5,24 +5,31 @@
       .chat-group-form__field--left
         = f.label :name, "グループ名"
       .chat-group-form__field--right
-        = f.text_field :name, placeholder: "グループ名を入力してください"
-    .chat-group-form__field.clearfix
-      .chat-group-form__field--left
-        = f.label :name, "チャットメンバーを追加"
-      .chat-group-form__field--right
-        = collection_check_boxes(:group, :user_ids, User.all, :id, :name) do |b|
-          = b.label { b.check_box + b.text }
-        .chat-group-form__search.clearfix
-        #user-search-result
-    .chat-group-form__field.clearfix
-      .chat-group-form__field--left
-        = f.label :name, "チャットメンバー"
-      .chat-group-form__field--right
-        #chat-group-users
-          #chat-group-user-22.chat-group-user.clear
-            %p.chat-group-user__name seo_kyohei
-    .chat-group-form__field.clearfix
-      .chat-group-form__field--left
-      .chat-group-form__field--right
-        = f.submit "Send"
+        = f.text_field :name, placeholder: "グループ名を入力してください", size: 40
+  .chat-group-form__field.clearfix
+    .chat-group-form__field--left
+      <label for="add" >チャットメンバーを追加</label>
+      -# = f.label :name, "チャットメンバーを追加"
+    .chat-group-form__field--right
+      %input#chatments{ placeholder: "追加したいユーザー名を入力して下さい", :size => "40", :type => "text"}/
+      -# = f.text_field :name, placeholder: "追加したいユーザー名を入力して下さい", size: 40
+      %ul#list
+      .chat-group-form__search.clearfix
+      #user-search-result
+  .chat-group-form__field.clearfix
+    .chat-group-form__field--left
+      <label for="ments" >チャットメンバー</label>
+      -# = f.label :name, "チャットメンバー"
+    .chat-group-form__field--right
+      #chat-group-users
+        #chat-group-user-22.chat-group-user.clear
+          %p.chat-group-user__name seo_kyohei
+  .chat-group-form__field.clearfix
+    .chat-group-form__field--left
+    .chat-group-form__field--right
+      %input#new_message{:type => "submit", :value => "送信"}/
 
+
+<input class='chat-group-form__input' id='user-search-field' placeholder='追加したいユーザー名を入力してください' type='text'>
+</div>
+<div id='user-search-result'></div>
