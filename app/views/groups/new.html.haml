@@ -21,15 +21,9 @@
       <label for="ments" >チャットメンバー</label>
       -# = f.label :name, "チャットメンバー"
     .chat-group-form__field--right
-      #chat-group-users
-        #chat-group-user-22.chat-group-user.clear
-          %p.chat-group-user__name seo_kyohei
+      #chat-group-users.clearfix
+        .chat-group-user__name miyajima
   .chat-group-form__field.clearfix
     .chat-group-form__field--left
     .chat-group-form__field--right
       %input#new_message{:type => "submit", :value => "送信"}/
-
-
-<input class='chat-group-form__input' id='user-search-field' placeholder='追加したいユーザー名を入力してください' type='text'>
-</div>
-<div id='user-search-result'></div>

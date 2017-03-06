@@ -5,9 +5,15 @@ $(function() {
     var list = $("#list");
 
     $.each(users, function(i, user) {
-      var item = $('<li class="list">').append(user.name);
+      var chat_group_user__btn = $('<button type="button" class="chat-group-user__btn">').append('<span class="chat-group-user__btn--add">').append("追加");
+      var item = $('<li class="list">').append(user.name).append(chat_group_user__btn);
       list.append(item);
     });
+    $('.added-btn').on('click', function() {
+      var listing = $(this).parent();
+      var memberlist = $("#memberlist");
+      memberlist.append(listing);
+    })
     preWord = $("#chatments").val();
   };
 
@@ -28,8 +34,6 @@ $(function() {
       .done(function(data) {
         var users = data.users;
         user = buildHTML(users)
-        // $('.chatspace__right__bottom__message').append(html);
-        // $('#new_form')[0].reset() ;
       })
       .fail(function() {
         alert('error');
