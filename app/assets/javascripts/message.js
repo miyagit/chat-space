@@ -1,3 +1,4 @@
+
 $(function() {
   function buildHTML(message) {
     var html = `<span class="chatspace__right__bottom__message__username">

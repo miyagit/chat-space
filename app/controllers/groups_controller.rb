@@ -5,14 +5,19 @@ class GroupsController < ApplicationController
     @groups = current_user.groups
   end
 
+
   def new
     @group = Group.new
   end
 
   def create
+    binding.pry
     @group = Group.new(group_params)
     if @group.save
-      redirect_to new_group_path, notice: "グループを作成できました。"
+      respond_to do |format|
+        format.html {redirect_to new_group_path, notice: "グループを作成できました。"}
+        format.json
+      end
     else
       flash[:alert] = "グループ名にデータを入力していないので保存できませんでした。"
       render :new
