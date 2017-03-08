@@ -5,13 +5,11 @@ class GroupsController < ApplicationController
     @groups = current_user.groups
   end
 
-
   def new
     @group = Group.new
   end
 
   def create
-    binding.pry
     @group = Group.new(group_params)
     if @group.save
       respond_to do |format|

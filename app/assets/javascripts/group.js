@@ -7,7 +7,6 @@ $(function() {
       var chat_group_user__btn = $('<button type="button" class="chat-group-user__btn">').append('<span class="chat-group-user__btn--add">追加');
       var id = user.id;
       var user_id = $('<input type="hidden" value='+ id +' class="user_id">')
-      // $('.user_id').val(user.id);
       var item = $('<li class="list">').append(user.name).append(chat_group_user__btn).append(user_id);
       list.append(item);
     });
@@ -25,25 +24,15 @@ $(function() {
         removelist.remove();
       });
       user_ids = [];
-      // var tmp = memberlist.find('.list input').attr('value');
       var tmp = memberlist.find('.list');
       $.each(tmp, function(i, el) {
         user_ids.push(($(el).find('input').attr('value')));
-        // var x =el.getElementsByTagName('input');
-        // console.log(x.attr('value'));
       })
-      // $.each(tmp,function(i,el){
-      //   var x = el.find('.user_id');
-      //   console.log(x);
-      // });
       var currentid = $('.currentid')
       $.each(currentid, function(i, id) {
         user_ids.push(id.getAttribute('value'));
       })
-      // console.log(currentid);
-      console.log(user_ids);
     });
-
     preWord = $("#chatments").val();
   };
 
@@ -87,7 +76,6 @@ $(function() {
       dataType: 'json'
     })
     .done(function(data) {
-      console.log(data);
     })
     .fail(function() {
       alert('error');
