@@ -7,6 +7,7 @@ class GroupsController < ApplicationController
 
   def new
     @group = Group.new
+    @group.users << current_user
   end
 
   def create
@@ -28,6 +29,7 @@ class GroupsController < ApplicationController
   end
 
   def update
+    binding.pry
     if @group.update(group_params)
       redirect_to edit_group_path(@group), notice: "グループを変更しました。"
     else

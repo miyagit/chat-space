@@ -1,6 +1,6 @@
 .chat-group-form
   %h1 新規チャットグループ
-  = form_for @group do |f|
+  = form_for(group) do |f|
     .chat-group-form__field.clearfix
       .chat-group-form__field--left
         = f.label :name, "グループ名"
@@ -22,6 +22,7 @@
           %ul#memberlist
             %li.memberlist
               = current_user.name
+              = render partial: "groups/user", collection: @group.users
     .chat-group-form__field.clearfix
       .chat-group-form__field--left
       .chat-group-form__field--right
