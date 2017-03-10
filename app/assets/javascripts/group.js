@@ -1,86 +1,68 @@
 $(function() {
-  preWord = 0;
-  function buildHTML(users) {
-    var list = $("#list");
+  $('#chatments').on('keyup', function() {
+    ajaxsearch();
+  });
 
-    $.each(users, function(i, user) {
-      var chat_group_user__btn = $('<button type="button" class="chat-group-user__btn">').append('<span class="chat-group-user__btn--add">追加');
-      var id = user.id;
-      var user_id = $('<input type="hidden" value='+ id +' class="user_id">')
-      var item = $('<li class="list">').append(user.name).append(chat_group_user__btn).append(user_id);
-      list.append(item);
-    });
+  $('.chat-group-form__field--right').on('click','.chat-group-user__add', function() {
+    var user = $(this).parent();
+    var user_id = user.data('id');
+    var user_name = user.data('name');
+    addition(user, user_id, user_name);
+  });
 
-    $('.chat-group-user__btn').on('click', function() {
-      var listing = $(this).parent();
-      var btn = listing.find('.chat-group-user__btn--add')
-      btn.text('削除');
-      btn.removeClass('chat-group-user__btn--add');
-      btn.addClass('chat-group-user__btn--remove');
-      var memberlist = $("#memberlist");
-      memberlist.append(listing);
-      $('.chat-group-user__btn--remove').on('click', function() {
-        var removelist = $(this).parents(".list");
-        removelist.remove();
-      });
-      user_ids = [];
-      var tmp = memberlist.find('.list');
-      $.each(tmp, function(i, el) {
-        user_ids.push(($(el).find('input').attr('value')));
-      })
-      var currentid = $('.currentid')
-      $.each(currentid, function(i, id) {
-        user_ids.push(id.getAttribute('value'));
-      })
-    });
-    preWord = $("#chatments").val();
-  };
+  $('.chat-group-form__field--right').on('click','.chat-group-user__remove', function() {
+    var user = $(this).parent();
+    removement(user);
+  });
+});
 
-  $('#chatments').on('keyup', function(e) {
-    var word = $("#chatments").val();
-    $(".list").remove();
-    if (word != preWord && word.length !== 0) {
-      $.ajax({
-        type: 'GET',
-        url: '/users/search',
-        data: {
-          user: {
-            search: word
-          }
-        },
-        dataType: 'json'
-      })
-      .done(function(data) {
-        var users = data.users;
-        user = buildHTML(users)
-      })
-      .fail(function() {
-        alert('error');
+
+function buildHTML(user) {
+  var html = `<li class="addinglist" data-id="${ user.id }" data-name="${ user.name }">${ user.name }<button
+              type="button" class="chat-group-user__add">追加</button></li>`;
+  return html;
+}
+
+function BuildUserList(user_id, user_name) {
+  var html = `<li class="list">${ user_name }<button type="button" class="chat-group-user__remove">削除</button><input type="hidden" name='group[user_ids][]' value="${ user_id }" class="user_id"></li>`;
+  return html;
+}
+
+
+function ajaxsearch() {
+  var word = $("#chatments").val();
+  $.ajax({
+    type: 'GET',
+    url: '/users/search',
+    data: {
+      user: {
+        search: word
+      }
+    },
+    dataType: 'json'
+  })
+  .done(function(data) {
+    $(".addinglist").remove();
+    if (word.length !== 0) {
+      $.each(data.users, function(i, user) {
+        var list = buildHTML(user);
+        $("#searchresult").append(list);
       });
     }
+  })
+  .fail(function() {
+    alert('error');
   });
+  return false;
+}
 
-  $('#new_message').on('click', function(e) {
-    e.preventDefault();
-    var name = $('#group_name').val();
-    var user_id = user_ids;
-    $.ajax({
-      type: 'POST',
-      url: '/groups',
-      data: {
-        group: {
-          name: name,
-          user_ids: user_id
-        }
-      },
-      dataType: 'json'
-    })
-    .done(function(data) {
-    })
-    .fail(function() {
-      alert('error');
-    });
-    return false;
-  });
+function addition(user, user_id, user_name) {
+  user.remove();
+  var addhtml = BuildUserList(user_id, user_name);
+  $('#memberlist').append(addhtml);
+}
 
-});
+function removement(use) {
+  use.remove();
+}
+
