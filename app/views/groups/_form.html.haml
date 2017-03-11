@@ -22,7 +22,8 @@
           %ul#memberlist
             %li.memberlist
               = current_user.name
-              = render partial: "groups/user", collection: @group.users
+              = hidden_field_tag('group[user_ids][]', current_user.id)
+            = render partial: "groups/user", collection: @group.users.where.not( id: current_user.id)
     .chat-group-form__field.clearfix
       .chat-group-form__field--left
       .chat-group-form__field--right
