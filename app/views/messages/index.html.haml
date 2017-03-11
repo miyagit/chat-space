@@ -4,7 +4,9 @@
     .chatspace__right__top__left
       .chatspace__right__top__left__top1character
         = @group.name
-      .chatspace__right__top__left__member member
+      .chatspace__right__top__left__member
+        Memgers:
+        = render partial: "messages/team_member", collection: @group.users
     .chatspace__right__top__right
       .chatspace__right__top__right__edit
         %p.chatspace__right__top__right__edit__hole

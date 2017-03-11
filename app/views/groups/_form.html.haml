@@ -1,5 +1,8 @@
 .chat-group-form
-  %h1 新規チャットグループ
+  - if controller.action_name == 'new'
+    %h1 新規チャットグループ
+  - else
+    %h1 編集チャットグループ
   = form_for(group) do |f|
     .chat-group-form__field.clearfix
       .chat-group-form__field--left
