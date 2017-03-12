@@ -5,9 +5,6 @@ $(document).on('turbolinks:load', function() {
 
   $('.chat-group-form__field--right').on('click','.chat-group-user__add', function() {
     var user = $(this).parent();
-    // var user_id = user.data('id');
-    // var user_name = user.data('name');
-    // AddIdName(user, user_id, user_name);
     AddIdName(user);
   });
 
