@@ -5,14 +5,15 @@ $(document).on('turbolinks:load', function() {
 
   $('.chat-group-form__field--right').on('click','.chat-group-user__add', function() {
     var user = $(this).parent();
-    var user_id = user.data('id');
-    var user_name = user.data('name');
-    addition(user, user_id, user_name);
+    // var user_id = user.data('id');
+    // var user_name = user.data('name');
+    // AddIdName(user, user_id, user_name);
+    AddIdName(user);
   });
 
   $('.chat-group-form__field--right').on('click','.chat-group-user__remove', function() {
     var user = $(this).parent();
-    removement(user);
+    user.remove();
   });
 });
 
@@ -23,8 +24,8 @@ function buildHTML(user) {
   return html;
 }
 
-function BuildUserList(user_id, user_name) {
-  var html = `<li class="list">${ user_name }<button type="button" class="chat-group-user__remove">削除</button><input type="hidden" name='group[user_ids][]' value="${ user_id }" class="user_id"></li>`;
+function BuildUserList(user) {
+  var html = `<li class="list">${ user.data('name') }<button type="button" class="chat-group-user__remove">削除</button><input type="hidden" name='group[user_ids][]' value="${ user.data('id') }" class="user_id"></li>`;
   return html;
 }
 
@@ -56,13 +57,9 @@ function ajaxsearch() {
   return false;
 }
 
-function addition(user, user_id, user_name) {
+function AddIdName(user) {
   user.remove();
-  var addhtml = BuildUserList(user_id, user_name);
+  var addhtml = BuildUserList(user);
   $('#memberlist').append(addhtml);
-}
-
-function removement(use) {
-  use.remove();
 }
 
