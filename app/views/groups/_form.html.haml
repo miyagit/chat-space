@@ -1,33 +1,28 @@
-.chat-group-form
-  - if controller.action_name == 'new'
-    %h1 新規チャットグループ
-  - else
-    %h1 編集チャットグループ
-  = form_for(group) do |f|
-    .chat-group-form__field.clearfix
-      .chat-group-form__field--left
-        = f.label :name, "グループ名"
-      .chat-group-form__field--right
-        = f.text_field :name, placeholder: "グループ名を入力してください", size: 40
-    .chat-group-form__field.clearfix
-      .chat-group-form__field--left
-        = f.label :name,  "チャットメンバーを追加"
-      .chat-group-form__field--right
-        %input#chatments{ placeholder: "追加したいユーザー名を入力して下さい", size: "40", type: "text"}/
-        %ul#searchresult
-        .chat-group-form__search.clearfix
-        #user-search-result
-    .chat-group-form__field.clearfix
-      .chat-group-form__field--left
-        = f.label :name, "チャットメンバー"
-      .chat-group-form__field--right
-        #chat-group-users.clearfix
-          %ul#memberlist
-            %li.memberlist
-              = current_user.name
-              = hidden_field_tag('group[user_ids][]', current_user.id)
-            = render partial: "groups/user", collection: @group.users.where.not( id: current_user.id)
-    .chat-group-form__field.clearfix
-      .chat-group-form__field--left
-      .chat-group-form__field--right
-        = f.submit "Send", id: "new_message"
+= form_for(group) do |f|
+  .chat-group-form__field.clearfix
+    .chat-group-form__field--left
+      = f.label :name, "グループ名"
+    .chat-group-form__field--right
+      = f.text_field :name, placeholder: "グループ名を入力してください", size: 40
+  .chat-group-form__field.clearfix
+    .chat-group-form__field--left
+      = f.label :name,  "チャットメンバーを追加"
+    .chat-group-form__field--right
+      %input#chatments{ placeholder: "追加したいユーザー名を入力して下さい", size: "40", type: "text"}/
+      %ul#searchresult
+      .chat-group-form__search.clearfix
+      #user-search-result
+  .chat-group-form__field.clearfix
+    .chat-group-form__field--left
+      = f.label :name, "チャットメンバー"
+    .chat-group-form__field--right
+      #chat-group-users.clearfix
+        %ul#memberlist
+          %li.memberlist
+            = current_user.name
+            = hidden_field_tag('group[user_ids][]', current_user.id)
+          = render partial: "groups/user", collection: @group.users.where.not( id: current_user.id)
+  .chat-group-form__field.clearfix
+    .chat-group-form__field--left
+    .chat-group-form__field--right
+      = f.submit "Send", id: "new_message"

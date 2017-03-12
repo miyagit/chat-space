@@ -14,7 +14,7 @@ class GroupsController < ApplicationController
     @group = Group.new(group_params)
     if @group.save
       respond_to do |format|
-        format.html {redirect_to root_path, notice: "グループを作成できました。"}
+        format.html { redirect_to root_path, notice: "グループを作成できました。" }
         format.json
       end
     else
@@ -25,7 +25,6 @@ class GroupsController < ApplicationController
 
   def edit
     @group = Group.find(params[:id])
-    @team_members = @group.users
   end
 
   def update
