@@ -42,8 +42,9 @@ html, body {
     }
     &__bottom {
       padding: 0px 0px 0px 20px;
+      color: white;
       &:hover {
-        background-color: #E6E6FA;
+        background-color: #ff0000;
       }
       &__group {
         font-size: 15px;
