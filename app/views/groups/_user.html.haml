@@ -1,0 +1,4 @@
+%li.list
+  = user.name
+  %button.chat-group-user__remove{type: "button"} 削除
+  = hidden_field_tag('group[user_ids][]', user.id)

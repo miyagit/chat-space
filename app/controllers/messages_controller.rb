@@ -2,6 +2,7 @@ class MessagesController < ApplicationController
   before_action :set_groups, :set_messages, only:[:index, :create]
 
   def index
+    @message = Message.new
   end
 
   def create
@@ -29,7 +30,6 @@ class MessagesController < ApplicationController
   end
 
   def set_messages
-    @message = Message.new
     @messages = @group.messages
   end
 end
