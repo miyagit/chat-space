@@ -135,6 +135,8 @@ html, body {
           .fa.fa-file-picture-o {
             float: right;
             margin: 15px 10px 0px 0px;
+            cursor:pointer;
+            // display: none;
           }
           &__type {
             margin: 12px 0px 0px 10px;

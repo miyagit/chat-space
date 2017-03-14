@@ -1,31 +1,30 @@
-$(function() {
+$(document).on('turbolinks:load', function() {
   function buildHTML(message) {
     var html = `<span class="chatspace__right__bottom__message__username">
                   ${message.name}
                 </span>
                 <span class="chatspace__right__bottom__message__date">
                   ${message.time}
-                </span>
-                <p class="chatspace__right__bottom__message__body">
-                  ${message.body}
-                </p>`;
+                </span>`;
+
     return html;
   }
 
-  $('.new_message').on('submit', function(e) {
+  function 
+
+  $('#new_form').on('submit', function(e) {
     e.preventDefault();
-    var new_message = $('#message_body').val();
+    var fb = new FormData ($(this).get(0));
     $.ajax({
       type: 'POST',
       url: './messages',
-      data: {
-        message: {
-          body: new_message
-        }
-      },
+      data: fb,
+      processData: false,
+      contentType: false,
       dataType: 'json'
     })
     .done(function(data) {
+      console.log(data);
       var html = buildHTML(data);
       $('.chatspace__right__bottom__message').append(html);
       $('#new_form')[0].reset();
@@ -36,3 +35,11 @@ $(function() {
     return false;
   });
 });
+
+
+<p class="chatspace__right__bottom__message__body">
+  ${message.body}
+</p>
+<p class="chatspace__right__bottom__message__body">
+  <img src=${message.image} alt=${message.image}>
+</p>

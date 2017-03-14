@@ -17,6 +17,7 @@ gem 'turbolinks', '~> 5'
 gem "font-awesome-rails"
 # devise系
 gem 'devise'
+gem 'carrierwave'
 
 
 group :development, :test do

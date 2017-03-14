@@ -18,7 +18,8 @@
     = form_for [@group, @message], html: {id: 'new_form'} do |f|
       .chatspace__right__bottom__mostbox
         .chatspace__right__bottom__mostbox__messagebox
-          %i.fa.fa-file-picture-o
+          = f.label :image, for: "file-input", class: "fa fa-file-picture-o" do
+            = f.file_field :image, id: "file-input",style: "display:none;"
           %p.chatspace__right__bottom__mostbox__messagebox__type
             = f.text_field :body, placeholder: "type a message"
         .chatspace__right__bottom__mostbox__sendbox
