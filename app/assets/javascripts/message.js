@@ -1,17 +1,4 @@
 $(document).on('turbolinks:load', function() {
-  function buildHTML(message) {
-    var html = `<span class="chatspace__right__bottom__message__username">
-                  ${message.name}
-                </span>
-                <span class="chatspace__right__bottom__message__date">
-                  ${message.time}
-                </span>`;
-
-    return html;
-  }
-
-  function 
-
   $('#new_form').on('submit', function(e) {
     e.preventDefault();
     var fb = new FormData ($(this).get(0));
@@ -37,9 +24,27 @@ $(document).on('turbolinks:load', function() {
 });
 
 
-<p class="chatspace__right__bottom__message__body">
-  ${message.body}
-</p>
-<p class="chatspace__right__bottom__message__body">
-  <img src=${message.image} alt=${message.image}>
-</p>
+// <p class="chatspace__right__bottom__message__body">
+//   ${message.body}
+// </p>
+// <p class="chatspace__right__bottom__message__body">
+//   <img src=${message.image} alt=${message.image}>
+// </p>
+
+
+function buildHTML(message) {
+  var basehtml = `<span class="chatspace__right__bottom__message__username">
+                ${message.name}
+              </span>
+              <span class="chatspace__right__bottom__message__date">
+                ${message.time}
+              </span>
+              <p class="chatspace__right__bottom__message__body">
+                ${message.body}
+              </p>
+              <p class="chatspace__right__bottom__message__body">
+                <img src=${message.image} alt=${message.image}>
+              </p>`;
+}
+
+// bodyは空文字で、imageはnull

@@ -3,11 +3,5 @@
 %span.chatspace__right__bottom__message__date
   = message_time(message)
 %p.chatspace__right__bottom__message__body
-  - if message.body.present? && message.image.present?
-    = message.body
-    %br
-    = image_tag message.image, size: "128x128", alt: "画像が表示できておりません。"
-  - elsif message.body.present?
-    = message.body
-  - elsif message.image.present?
-    = image_tag message.image, size: "128x128", alt: "画像が表示できておりません。"
+  = message.body
+= image_tag(message.image)

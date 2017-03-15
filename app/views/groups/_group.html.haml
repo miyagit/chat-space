@@ -1,6 +1,6 @@
 = link_to group_messages_path(group) do
-  .chatspace__left__bottom
-    %p.chatspace__left__bottom__group
-    = group.name
-    %p.chatspace__left__bottom__message
-    = group.latest_message
+  .chatspace__left__bottom__group
+    %p.chatspace__left__bottom__group__name
+      = group.name
+    %p.chatspace__left__bottom__group__message
+      = group.latest_message
