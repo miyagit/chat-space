@@ -11,7 +11,6 @@ $(document).on('turbolinks:load', function() {
       dataType: 'json'
     })
     .done(function(data) {
-      console.log(data);
       var html = buildHTML(data);
       $('.chatspace__right__bottom__message').append(html);
       $('#new_form')[0].reset();
@@ -34,17 +33,30 @@ $(document).on('turbolinks:load', function() {
 
 function buildHTML(message) {
   var basehtml = `<span class="chatspace__right__bottom__message__username">
-                ${message.name}
-              </span>
-              <span class="chatspace__right__bottom__message__date">
-                ${message.time}
-              </span>
-              <p class="chatspace__right__bottom__message__body">
-                ${message.body}
-              </p>
-              <p class="chatspace__right__bottom__message__body">
-                <img src=${message.image} alt=${message.image}>
-              </p>`;
+                   ${message.name}
+                  </span>
+                  <span class="chatspace__right__bottom__message__date">
+                    ${message.time}
+                  </span>
+                  <p class="chatspace__right__bottom__message__body">
+                    ${message.body}
+                  </p>`
+
+  if(message["image"] !== null) {
+    var basehtml = `<span class="chatspace__right__bottom__message__username">
+                   ${message.name}
+                  </span>
+                  <span class="chatspace__right__bottom__message__date">
+                    ${message.time}
+                  </span>
+                  <p class="chatspace__right__bottom__message__body">
+                    ${message.body}
+                  </p>
+                  <p class="chatspace__right__bottom__message__body">
+                    <img src=${message.image} alt=${message.image} width="50" height="50">
+                  </p>`;
+  }
+  return basehtml;
 }
 
 // bodyは空文字で、imageはnull

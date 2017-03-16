@@ -4,4 +4,5 @@
   = message_time(message)
 %p.chatspace__right__bottom__message__body
   = message.body
-= image_tag(message.image)
+  %br
+  = image_tag message.image_url(:thumb)
