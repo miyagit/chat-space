@@ -38,6 +38,7 @@ function buildHTML(message) {
                   </span>
                   <p class="chatspace__right__bottom__message__body">
                     ${message.body}
-                  </p>` + image;
+                  </p>
+                  ${image}`
   return basehtml;
 }
