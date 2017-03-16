@@ -25,7 +25,7 @@ $(document).on('turbolinks:load', function() {
 function buildHTML(message) {
   if(message["image"] !== null) {
     var image = `<p class="chatspace__right__bottom__message__body">
-                    <img src=${message.image} alt=${message.image} width="50" height="50">
+                    <img src=${message.image} alt=${message.image} width="330" height="330">
                 </p>`;
   }else {
     var image = ``;

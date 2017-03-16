@@ -10,6 +10,7 @@
 # Ignore all logfiles and tempfiles.
 /log/*
 /tmp/*
+/Users/yuya/Desktop/projects/chat-space/public/uploads/
 !/log/.keep
 !/tmp/.keep
 
