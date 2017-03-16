@@ -1,11 +1,11 @@
 $(document).on('turbolinks:load', function() {
   $('#new_form').on('submit', function(e) {
     e.preventDefault();
-    var fb = new FormData ($(this).get(0));
+    var formData = new FormData ($(this).get(0));
     $.ajax({
       type: 'POST',
       url: './messages',
-      data: fb,
+      data: formData,
       processData: false,
       contentType: false,
       dataType: 'json'
@@ -23,6 +23,13 @@ $(document).on('turbolinks:load', function() {
 });
 
 function buildHTML(message) {
+  if(message["image"] !== null) {
+    var image = `<p class="chatspace__right__bottom__message__body">
+                    <img src=${message.image} alt=${message.image} width="50" height="50">
+                </p>`;
+  }else {
+    var image = ``;
+  }
   var basehtml = `<span class="chatspace__right__bottom__message__username">
                    ${message.name}
                   </span>
@@ -31,21 +38,6 @@ function buildHTML(message) {
                   </span>
                   <p class="chatspace__right__bottom__message__body">
                     ${message.body}
-                  </p>`
-
-  if(message["image"] !== null) {
-    var basehtml = `<span class="chatspace__right__bottom__message__username">
-                   ${message.name}
-                  </span>
-                  <span class="chatspace__right__bottom__message__date">
-                    ${message.time}
-                  </span>
-                  <p class="chatspace__right__bottom__message__body">
-                    ${message.body}
-                  </p>
-                  <p class="chatspace__right__bottom__message__body">
-                    <img src=${message.image} alt=${message.image} width="50" height="50">
-                  </p>`;
-  }
+                  </p>` + image;
   return basehtml;
 }
