@@ -19,7 +19,6 @@ CarrierWave.configure do |config|
         config.storage :fog
         config.fog_directory  = 'chatspace-miyajima'
         config.asset_host = 'https://s3.amazonaws.com/chatspace-miyajima'
-    end
     when 'test'
         config.storage :file
     end

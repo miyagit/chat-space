@@ -10,7 +10,11 @@
 # Ignore all logfiles and tempfiles.
 /log/*
 /tmp/*
-/Users/yuya/Desktop/projects/chat-space/public/uploads/
+/*.jpg
+/*.gif
+/*.png
+/*.jpeg
+
 !/log/.keep
 !/tmp/.keep
 

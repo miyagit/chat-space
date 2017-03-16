@@ -19,7 +19,7 @@
       .chatspace__right__bottom__mostbox
         .chatspace__right__bottom__mostbox__messagebox
           = f.label :image, for: "file-input", class: "fa fa-file-picture-o" do
-            = f.file_field :image, id: "file-input",style: "display:none;"
+            = f.file_field :image, id: "file-input"
           %p.chatspace__right__bottom__mostbox__messagebox__type
             = f.text_field :body, placeholder: "type a message"
         .chatspace__right__bottom__mostbox__sendbox
