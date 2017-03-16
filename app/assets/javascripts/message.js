@@ -22,15 +22,6 @@ $(document).on('turbolinks:load', function() {
   });
 });
 
-
-// <p class="chatspace__right__bottom__message__body">
-//   ${message.body}
-// </p>
-// <p class="chatspace__right__bottom__message__body">
-//   <img src=${message.image} alt=${message.image}>
-// </p>
-
-
 function buildHTML(message) {
   var basehtml = `<span class="chatspace__right__bottom__message__username">
                    ${message.name}
@@ -58,5 +49,3 @@ function buildHTML(message) {
   }
   return basehtml;
 }
-
-// bodyは空文字で、imageはnull
