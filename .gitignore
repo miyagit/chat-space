@@ -10,6 +10,11 @@
 # Ignore all logfiles and tempfiles.
 /log/*
 /tmp/*
+/*.jpg
+/*.gif
+/*.png
+/*.jpeg
+
 !/log/.keep
 !/tmp/.keep
 

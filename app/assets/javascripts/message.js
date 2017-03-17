@@ -1,28 +1,13 @@
-$(function() {
-  function buildHTML(message) {
-    var html = `<span class="chatspace__right__bottom__message__username">
-                  ${message.name}
-                </span>
-                <span class="chatspace__right__bottom__message__date">
-                  ${message.time}
-                </span>
-                <p class="chatspace__right__bottom__message__body">
-                  ${message.body}
-                </p>`;
-    return html;
-  }
-
-  $('.new_message').on('submit', function(e) {
+$(document).on('turbolinks:load', function() {
+  $('#new_form').on('submit', function(e) {
     e.preventDefault();
-    var new_message = $('#message_body').val();
+    var formData = new FormData ($(this).get(0));
     $.ajax({
       type: 'POST',
       url: './messages',
-      data: {
-        message: {
-          body: new_message
-        }
-      },
+      data: formData,
+      processData: false,
+      contentType: false,
       dataType: 'json'
     })
     .done(function(data) {
@@ -36,3 +21,24 @@ $(function() {
     return false;
   });
 });
+
+function buildHTML(message) {
+  if(message["image"] !== null) {
+    var image = `<p class="chatspace__right__bottom__message__body">
+                    <img src=${message.image} alt=${message.image} width="330" height="330">
+                </p>`;
+  }else {
+    var image = ``;
+  }
+  var basehtml = `<span class="chatspace__right__bottom__message__username">
+                   ${message.name}
+                  </span>
+                  <span class="chatspace__right__bottom__message__date">
+                    ${message.time}
+                  </span>
+                  <p class="chatspace__right__bottom__message__body">
+                    ${message.body}
+                  </p>
+                  ${image}`
+  return basehtml;
+}

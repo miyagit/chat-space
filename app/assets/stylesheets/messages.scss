@@ -41,20 +41,21 @@ html, body {
       }
     }
     &__bottom {
-      padding: 0px 0px 0px 20px;
       color: white;
-      &:hover {
-        background-color: #ff0000;
-      }
       &__group {
-        font-size: 15px;
-        color: $left_character_color;
-        padding: 20px 0px 0px 0px;
-      }
-      &__message {
-        font-size: 11px;
-        color: $left_character_color;
-        padding: 5px 0px 0px 0px;
+        &:hover {
+          background-color: #394b63;
+        }
+        &__name {
+          font-size: 15px;
+          color: $left_character_color;
+          padding: 20px 0px 0px 20px;
+        }
+        &__message {
+          font-size: 11px;
+          color: $left_character_color;
+          padding: 5px 0px 0px 20px;
+        }
       }
     }
   }
@@ -103,7 +104,10 @@ html, body {
         }
       }
     }
+
     &__bottom {
+      height: calc(100% - 190px);
+      overflow-y: scroll;
       &__message {
         margin-top: 40px;
         &__username {
@@ -135,6 +139,10 @@ html, body {
           .fa.fa-file-picture-o {
             float: right;
             margin: 15px 10px 0px 0px;
+            cursor:pointer;
+          }
+          #file-input {
+            display: none;
           }
           &__type {
             margin: 12px 0px 0px 10px;

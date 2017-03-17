@@ -9,6 +9,10 @@ gem 'puma', '~> 3.0'
 gem 'sass-rails', '~> 5.0'
 gem 'coffee-rails', '~> 4.2'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+#画像系
+gem 'carrierwave'
+gem 'rmagick'
+gem 'fog'
 #haml適応
 gem 'haml-rails'
 #見た目
@@ -17,6 +21,7 @@ gem 'turbolinks', '~> 5'
 gem "font-awesome-rails"
 # devise系
 gem 'devise'
+
 
 
 group :development, :test do
