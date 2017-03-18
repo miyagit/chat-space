@@ -11,9 +11,10 @@ $(document).on('turbolinks:load', function() {
       dataType: 'json'
     })
     .done(function(data) {
-      var html = buildHTML(data);
-      $('.chatspace__right__bottom__message').append(html);
+      goBottom()
       $('#new_form')[0].reset();
+      var html = messageBuildHTML(data);
+      $('.chatspace__right__bottom__message').append(html);
     })
     .fail(function() {
       alert('error');
@@ -22,10 +23,35 @@ $(document).on('turbolinks:load', function() {
   });
 });
 
-function buildHTML(message) {
-  if(message["image"] !== null) {
+
+$(function() {
+  autoreload = function() {
+    $.ajax({
+      type: 'GET',
+      url: './messages',
+      dataType: 'json'
+    })
+    .done(function(data) {
+      console.log('a')
+      $('.chatspace__right__bottom__message').empty();
+      $.each(data.messages, function(i, message) {
+        var autohtml = messageBuildHTML(message);
+        $('.chatspace__right__bottom__message').append(autohtml);
+      });
+    })
+    .fail(function() {
+      alert('error');
+    });
+    return false;
+  }
+  setInterval(autoreload, 7000);
+});
+
+function messageBuildHTML(message) {
+
+  if(message.image !== null) {
     var image = `<p class="chatspace__right__bottom__message__body">
-                    <img src=${message.image} alt=${message.image} width="330" height="330">
+                    <img src=${message.image} alt="image" width="330" height="330">
                 </p>`;
   }else {
     var image = ``;
@@ -42,3 +68,9 @@ function buildHTML(message) {
                   ${image}`
   return basehtml;
 }
+
+function goBottom() {
+   $('.chatspace__right__bottom').delay(30).animate({
+     scrollTop: $('.chatspace__right__bottom')[0].scrollHeight
+   }, 500);
+ };
