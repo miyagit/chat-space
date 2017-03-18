@@ -66,7 +66,7 @@ function messageBuildHTML(message) {
 
 function ScrollDown() {
    $('.chatspace__right__bottom').delay(30).animate({
-     scrollTop: $('.chatspace__right__bottom')[0].scrollHeight
+     scrollTop: $('.chatspace__right__bottom__message').height()
    }, 500);
  };
 
