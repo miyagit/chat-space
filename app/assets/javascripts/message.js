@@ -1,4 +1,5 @@
 $(document).on('turbolinks:load', function() {
+  autoreload();
   $('#new_form').on('submit', function(e) {
     e.preventDefault();
     var formData = new FormData ($(this).get(0));
@@ -11,7 +12,7 @@ $(document).on('turbolinks:load', function() {
       dataType: 'json'
     })
     .done(function(data) {
-      goBottom()
+      ScrollDown()
       $('#new_form')[0].reset();
       var html = messageBuildHTML(data);
       $('.chatspace__right__bottom__message').append(html);
@@ -24,7 +25,7 @@ $(document).on('turbolinks:load', function() {
 });
 
 
-$(function() {
+function autoreload() {
   autoreload = function() {
     $.ajax({
       type: 'GET',
@@ -32,7 +33,6 @@ $(function() {
       dataType: 'json'
     })
     .done(function(data) {
-      console.log('a')
       $('.chatspace__right__bottom__message').empty();
       $.each(data.messages, function(i, message) {
         var autohtml = messageBuildHTML(message);
@@ -44,8 +44,10 @@ $(function() {
     });
     return false;
   }
-  setInterval(autoreload, 7000);
-});
+  setInterval(autoreload, 10000);
+}
+
+
 
 function messageBuildHTML(message) {
 
@@ -69,7 +71,7 @@ function messageBuildHTML(message) {
   return basehtml;
 }
 
-function goBottom() {
+function ScrollDown() {
    $('.chatspace__right__bottom').delay(30).animate({
      scrollTop: $('.chatspace__right__bottom')[0].scrollHeight
    }, 500);
