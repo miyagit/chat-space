@@ -11,9 +11,10 @@ $(document).on('turbolinks:load', function() {
       dataType: 'json'
     })
     .done(function(data) {
-      var html = buildHTML(data);
-      $('.chatspace__right__bottom__message').append(html);
+      ScrollDown()
       $('#new_form')[0].reset();
+      var html = messageBuildHTML(data);
+      $('.chatspace__right__bottom__message').append(html);
     })
     .fail(function() {
       alert('error');
@@ -22,10 +23,30 @@ $(document).on('turbolinks:load', function() {
   });
 });
 
-function buildHTML(message) {
-  if(message["image"] !== null) {
+function autoreload() {
+  $.ajax({
+    type: 'GET',
+    url: './messages',
+    dataType: 'json'
+  })
+  .done(function(data) {
+    $('.chatspace__right__bottom__message').empty();
+    $.each(data.messages, function(i, message) {
+      var autohtml = messageBuildHTML(message);
+      $('.chatspace__right__bottom__message').append(autohtml);
+    });
+  })
+  .fail(function() {
+    alert('error');
+  });
+  return false;
+}
+
+function messageBuildHTML(message) {
+
+  if(message.image !== null) {
     var image = `<p class="chatspace__right__bottom__message__body">
-                    <img src=${message.image} alt=${message.image} width="330" height="330">
+                    <img src=${message.image} alt="image" width="330" height="330">
                 </p>`;
   }else {
     var image = ``;
@@ -42,3 +63,11 @@ function buildHTML(message) {
                   ${image}`
   return basehtml;
 }
+
+function ScrollDown() {
+   $('.chatspace__right__bottom').delay(30).animate({
+     scrollTop: $('.chatspace__right__bottom__message').height()
+   }, 500);
+ };
+
+setInterval(autoreload, 10000);
