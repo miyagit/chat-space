@@ -10,7 +10,7 @@ set :rbenv_type, :user
 set :rbenv_ruby, '2.3.1'
 
 set :ssh_options, auth_methods: ['publickey'],
-                  keys: ['~/.ssh/chatspace.pem`] ec2-user@13.112.4.245']
+                  keys: ['~/.ssh/chatspace.pem`]
 
 set :unicorn_pid, -> { "#{shared_path}/tmp/pids/unicorn.pid" }
 set :unicorn_config_path, -> { "#{current_path}/config/unicorn.rb" }
