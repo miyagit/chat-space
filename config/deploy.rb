@@ -15,8 +15,8 @@ set :ssh_options, auth_methods: ['publickey'],
 set :default_env, {
 	rbenv_root: "/usr/local/rbenv",
 	path: "~/.rbenv/shims:~/.rbenv/bin:$PATH",
-	AWS_ACCESS_KEY_ID: ENV["ACCESS_KEY_ID"],
-        AWS_SECRET_ACCESS_KEY: ENV["SECRET_ACCESS_KEY"]
+	aws_access_key_id: ENV['ACCESS_KEY_S3_ID'],
+  aws_secret_access_key: ENV['SECRET_ACCESS_S3_KEY']
 }
 
 set :whenever_identifier, ->{ "#{fetch(:application)}_#{fetch(:stage)}" }
