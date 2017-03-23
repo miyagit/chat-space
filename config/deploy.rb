@@ -13,7 +13,7 @@ set :ssh_options, auth_methods: ['publickey'],
                   keys: ['~/.ssh/chatspace.pem']
 
 set :default_env, {
-	rbenv_root: "/usr/local/rbenv",
+	rbenv_root: "~/.rbenv",
 	path: "~/.rbenv/shims:~/.rbenv/bin:$PATH",
 	aws_access_key_id: ENV['ACCESS_KEY_S3_ID'],
   aws_secret_access_key: ENV['SECRET_ACCESS_S3_KEY']
