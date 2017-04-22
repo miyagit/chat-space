@@ -32,6 +32,7 @@ function autoreload() {
   .done(function(data) {
     $('.chatspace__right__bottom__message').empty();
     $.each(data.messages, function(i, message) {
+      console.log(message);
       var autohtml = messageBuildHTML(message);
       $('.chatspace__right__bottom__message').append(autohtml);
     });
@@ -39,7 +40,7 @@ function autoreload() {
   .fail(function() {
     alert('error');
   });
-  return false;
+  // return false;
 }
 
 function messageBuildHTML(message) {
