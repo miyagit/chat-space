@@ -3,7 +3,6 @@ source 'https://rubygems.org'
 
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
 gem 'mysql2', '>= 0.3.18', '< 0.5'
-gem 'uglifier', '>= 1.3.0'
 gem 'jbuilder', '~> 2.5'
 gem 'puma', '~> 3.0'
 gem 'sass-rails', '~> 5.0'
@@ -11,8 +10,8 @@ gem 'coffee-rails', '~> 4.2'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 #画像系
 gem 'carrierwave'
-gem 'rmagick'
 gem 'fog'
+gem 'rmagick'
 #haml適応
 gem 'haml-rails'
 #見た目

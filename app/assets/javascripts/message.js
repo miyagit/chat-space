@@ -71,4 +71,4 @@ function ScrollDown() {
    }, 500);
  };
 
-setInterval(autoreload, 10000);
+setInterval(autoreload, 1000000);
