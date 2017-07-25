@@ -40,7 +40,6 @@ function autoreload() {
   .fail(function() {
     alert('error');
   });
-  // return false;
 }
 
 function messageBuildHTML(message) {
@@ -71,4 +70,3 @@ function ScrollDown() {
    }, 500);
  };
 
-setInterval(autoreload, 1000000);

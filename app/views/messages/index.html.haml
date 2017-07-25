@@ -11,7 +11,7 @@
     .chatspace__right__top__right
       .chatspace__right__top__right__edit
         %p.chatspace__right__top__right__edit__hole
-        =link_to "Edit", edit_group_path(@group)
+          = link_to "Edit", edit_group_path(@group)
   .chatspace__right__bottom
     .chatspace__right__bottom__message
       = render @messages
@@ -21,7 +21,7 @@
           = f.label :image, for: "file-input", class: "fa fa-file-picture-o" do
             = f.file_field :image, id: "file-input"
           %p.chatspace__right__bottom__mostbox__messagebox__type
-            = f.text_field :body, placeholder: "type a message"
+            = f.text_field :body, size: "83", placeholder: "type a message"
         .chatspace__right__bottom__mostbox__sendbox
           %p.chatspace__right__bottom__mostbox__sendbox__sendbutton
             = f.submit "Send"

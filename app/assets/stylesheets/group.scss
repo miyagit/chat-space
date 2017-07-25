@@ -56,6 +56,9 @@
     .chat-group-form__field--right {
       float: right;
       width: 70%;
+      #new_message {
+        margin: 20px 0 0 0;
+      }
       #list {
         padding: 0;
         margin: 0, 250px, 0 200px;
